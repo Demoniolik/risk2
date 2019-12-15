@@ -26,7 +26,7 @@
 	overflow-y: scroll;
 	padding: 30px;
 	max-height: 85%;
-
+	min-height: 85%;
 }
 
 .bottom .items .item {
@@ -122,9 +122,23 @@
     font-size: 18px;
     font-family: concola;
     margin-right: 10px;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
 .category .cat:hover,
 .category .cat.active {
 	background: rgba(255,255,255,.2)
+}
+
+.category .cat.active {
+	cursor: default;
+}
+
+.items {
+	display: none;
+}
+
+.items.active {
+	display: block;
 }
