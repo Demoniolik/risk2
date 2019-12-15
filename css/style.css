@@ -1,0 +1,130 @@
+
+.top {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	width: 100%;
+	height: 40vh;
+	background: rgba(10,59,195,1);
+	background: -moz-linear-gradient(45deg, rgba(10,59,195,1) 0%, rgba(23,194,188,1) 100%);
+	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(10,59,195,1)), color-stop(100%, rgba(23,194,188,1)));
+	background: -webkit-linear-gradient(45deg, rgba(10,59,195,1) 0%, rgba(23,194,188,1) 100%);
+	background: -o-linear-gradient(45deg, rgba(10,59,195,1) 0%, rgba(23,194,188,1) 100%);
+	background: -ms-linear-gradient(45deg, rgba(10,59,195,1) 0%, rgba(23,194,188,1) 100%);
+	background: linear-gradient(45deg, rgba(10,59,195,1) 0%, rgba(23,194,188,1) 100%);
+	padding: 15px 30px;
+}
+
+.bottom	{
+	background: #F1F0F0;
+	height: 60vh;
+}
+
+.bottom .items {
+	overflow-y: scroll;
+	padding: 30px;
+	max-height: 85%;
+
+}
+
+.bottom .items .item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: 0px 0px 20px 0px #D6D6D6;
+	padding: 15px;
+	border-radius: 15px;
+	background: #fff;
+	margin-bottom: 10px;
+}
+
+.bottom .items .item .item-left {
+	display: flex;
+	align-items: center;
+}
+
+.bottom .items .item .item-left .product {
+	display: flex;
+	flex-direction: column;
+}
+
+.bottom .items .item .item-img {
+	max-width: 30px;
+	margin-right: 15px;
+}
+
+.bottom .items .item .item-img img {
+	width: 30px;
+}
+
+.bottom .items .item .item-name {
+	color: #000;
+	font-family: eras, arial;
+	font-size: 18px;
+}
+
+.bottom .items .item .item-descr {
+	color: #D6D6D6;
+}
+
+.bottom .items .item .item-price {
+	color: #57C437;
+	font-family: concola,arial;
+	font-size: 16px;
+	font-weight: bolder;
+
+}
+
+.bottom .items .item .item-amount {
+	color: #D6D6D6;
+}
+
+.footer-menu {
+	
+	
+	border-top: 1px solid #DCDCDC;
+}
+
+.footer-menu ul {
+	display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-menu ul li {
+	
+}
+
+.footer-menu ul li a {
+	
+}
+
+.footer-menu ul li a img {
+	width: 25px;
+}
+
+.category {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: flex-end;
+	overflow-x: auto;
+}
+
+.category .cat {
+	color: #8DC1EC;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-family: concola;
+    margin-right: 10px;
+}
+
+.category .cat:hover,
+.category .cat.active {
+	background: rgba(255,255,255,.2)
+}

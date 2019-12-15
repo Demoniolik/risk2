@@ -1,0 +1,47 @@
+* {
+	outline: none;
+}
+h1,h2,h3,h4,h5,h6,p {
+	margin: 0;
+	color: #fff;
+}
+
+ul {
+	padding: 0;
+	list-style: none;
+	margin-bottom: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: #fff;
+	font-family: Lato;
+	width: 100%;
+	overflow-x: hidden;
+	margin: 0;
+}
+
+/* Шрифты */
+
+@font-face {
+ font-family: BebasNeue;
+ src: url(fonts/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+ font-family: Lato;
+ src: url(fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+ font-family: eras;
+ src: url(fonts/eras.TTF);
+}
+
+@font-face {
+ font-family: concola;
+ src: url(fonts/consola.ttf);
+}
