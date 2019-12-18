@@ -18,6 +18,9 @@ function itemsSelected() {
   } else if($(".cat.firstdish").hasClass("active")) {
     $(".items").removeClass("active");
     $(".items.firstdish").toggleClass("active");
+  } else if ($(".cat.pizza").hasClass("active")) {
+    $(".items").removeClass("active");
+    $(".items.pizza").toggleClass("active");
   };
 
 };
