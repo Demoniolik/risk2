@@ -1,25 +1,43 @@
+.container-logo {
+	width: 100%;
+	height: 100vh;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
-.top {
+.container-logo .logo {
+	font-size: 120px;
+	color: #000;
+	font-family: eras, arial;
+}
+
+.content {
+	display: none;
+}
+.top {  
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
 	display: -o-flex;
 	display: flex;
 	width: 100%;
-	height: 40vh;
-	background: rgba(10,59,195,1);
-	background: -moz-linear-gradient(45deg, rgba(10,59,195,1) 0%, rgba(23,194,188,1) 100%);
-	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(10,59,195,1)), color-stop(100%, rgba(23,194,188,1)));
-	background: -webkit-linear-gradient(45deg, rgba(10,59,195,1) 0%, rgba(23,194,188,1) 100%);
-	background: -o-linear-gradient(45deg, rgba(10,59,195,1) 0%, rgba(23,194,188,1) 100%);
-	background: -ms-linear-gradient(45deg, rgba(10,59,195,1) 0%, rgba(23,194,188,1) 100%);
-	background: linear-gradient(45deg, rgba(10,59,195,1) 0%, rgba(23,194,188,1) 100%);
+	height: 40%;
 	padding: 15px 30px;
+	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
 }
 
 .bottom	{
 	background: #F1F0F0;
-	height: 60vh;
+	height: 60%;
 }
 
 .bottom .items {
@@ -27,9 +45,11 @@
 	padding: 30px;
 	max-height: 85%;
 	min-height: 85%;
+	margin: 0 auto;
+	max-width: 768px;
 }
 
-.bottom .items .item {
+.item {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -40,36 +60,42 @@
 	margin-bottom: 10px;
 }
 
-.bottom .items .item .item-left {
+.item input[type="checkbox"] {
+	-opacity: 0;
+	-position: absolute;
+	-left: -9999999px;
+}
+
+.item .item-left {
 	display: flex;
 	align-items: center;
 }
 
-.bottom .items .item .item-left .product {
+.item .item-left .product {
 	display: flex;
 	flex-direction: column;
 }
 
-.bottom .items .item .item-img {
+.item .item-img {
 	max-width: 30px;
 	margin-right: 15px;
 }
 
-.bottom .items .item .item-img img {
+.item .item-img img {
 	width: 30px;
 }
 
-.bottom .items .item .item-name {
+.item .item-name {
 	color: #000;
 	font-family: eras, arial;
 	font-size: 18px;
 }
 
-.bottom .items .item .item-descr {
+.item .item-descr {
 	color: #D6D6D6;
 }
 
-.bottom .items .item .item-price {
+.item .item-price {
 	color: #57C437;
 	font-family: concola,arial;
 	font-size: 16px;
@@ -77,7 +103,7 @@
 
 }
 
-.bottom .items .item .item-amount {
+.item .item-amount {
 	color: #D6D6D6;
 }
 
@@ -113,10 +139,11 @@
 	display: flex;
 	align-items: flex-end;
 	overflow-x: auto;
+	margin: 0 auto;
 }
 
 .category .cat {
-	color: #8DC1EC;
+	color: #fff;
     padding: 5px 10px;
     border-radius: 15px;
     font-size: 18px;
@@ -141,4 +168,106 @@
 
 .items.active {
 	display: block;
+}
+
+.container-cart {
+	width: 100%;
+	height: 100vh;
+	background: rgba(0,0,0,.3);
+	z-index: 999;
+	position: absolute;
+	display: none;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.cart {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #fff;
+	height: 0;
+	display: none;
+	height: 55vh;
+	border-radius: 30px 30px 0 0;
+	box-shadow: 0px 0px 60px #626060;
+	max-width: 768px;
+	margin: 0 auto;
+	z-index: 9999;
+	padding: 20px 20px 60px;
+	overflow-y: auto;
+}
+
+.container-cart.show,
+.container-cart.show + .cart,
+.container-cart.show + .cart + .container-submit {
+	display: block;
+}
+
+.container-submit {
+	display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 80px;
+    z-index: 99999;
+    background: #fff;
+    box-shadow: 0px 0px 30px #ddd;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.cart-submit {
+    padding: 12px;
+    background: #BFE4F8;
+    display: none;
+    z-index: 9999;
+    border-radius: 10px;
+    color: #274B65;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: concola,arial;
+    display: block;
+}
+
+
+@-webkit-keyframes Gradient {
+0% {
+background-position: 0% 50%
+}
+50% {
+background-position: 100% 50%
+}
+100% {
+background-position: 0% 50%
+}
+}
+ 
+@-moz-keyframes Gradient {
+0% {
+background-position: 0% 50%
+}
+50% {
+background-position: 100% 50%
+}
+100% {
+background-position: 0% 50%
+}
+}
+ 
+@keyframes Gradient {
+0% {
+background-position: 0% 50%
+}
+50% {
+background-position: 100% 50%
+}
+100% {
+background-position: 0% 50%
+}
 }

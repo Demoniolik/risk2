@@ -1,3 +1,9 @@
+function logoHide(){
+  $('.container-logo').css('display', 'none');
+  $('.content').css('display', 'block');
+
+}
+setTimeout(logoHide, 1000);
 
 $(".category .cat").click(function(e){
   e.preventDefault();
@@ -25,3 +31,18 @@ function itemsSelected() {
 
 };
 
+function openCart() {
+  $(".container-cart").toggleClass("show");
+}
+
+$(".container-cart").click(function(){
+  $(this).removeClass("show");
+});
+
+function setHeiHeight() {
+    $('.content').css({
+        height: $(window).height() + 'px'
+    });
+}
+setHeiHeight(); // устанавливаем высоту окна при первой загрузке страницы
+$(window).resize( setHeiHeight ); // обновляем при изменении размеров окна

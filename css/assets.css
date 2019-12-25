@@ -24,6 +24,11 @@ body {
 	margin: 0;
 }
 
+.content {
+	height: 130%;
+	height: 130vh;
+}
+
 /* Шрифты */
 
 @font-face {
