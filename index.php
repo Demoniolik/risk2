@@ -41,21 +41,22 @@
         <div class="cat rom">Ром</div>
       </div>
     </div>
-    
-      
-    <form action="" method="post">
-    <div class="bottom"> 
-      
+
+
+    <form action="script.php" method="get">
+    <div class="bottom">
+
       <div class="items drinks active">
         <?php
+        $i = 1;
       $result = mysqli_query($connection, "SELECT * FROM meals WHERE restraunt_id = 1 and meal_category = 1");
       if(mysqli_num_rows($result) > 0) {
-      $i = 1;
+
         while($row = mysqli_fetch_assoc($result)) {
         $i += 1;
         echo '<label for='."checkbox-item$row[meal_id]". ' class='."item".'>';
-        echo '<input type= "checkbox" name="form" value="A" id='."checkbox-item$row[meal_id]". '>' ?>
-          
+        echo '<input type= "checkbox" name='. "$i".' value='. "$row[meal_id]". ' id='."checkbox-item$row[meal_id]". '>' ?>
+
           <div class="item-left">
             <div class="item-img">
               <img src="img/cocktails.svg" alt="salad">
@@ -98,15 +99,13 @@
 
       <div class="items salad">
         <?php
-      $result = mysqli_query($connection, "SELECT meal_name, meal_description, meal_amount, meal_value FROM meals WHERE restraunt_id = 1 and meal_category = 2");
-      $datas = array();
-      $datas = array();
+      $result = mysqli_query($connection, "SELECT * FROM meals WHERE restraunt_id = 1 and meal_category = 2");
       if(mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
-  ?> 
-        <label for="checkbox-item1" class="item">
-          <input type="checkbox" id="checkbox-item1">
-          
+          $i += 1;
+          echo '<label for='."checkbox-item$row[meal_id]". ' class='."item".'>';
+          echo '<input type= "checkbox" name='. "$i".' value='. "$row[meal_id]". ' id='."checkbox-item$row[meal_id]". '>' ?>
+
           <div class="item-left">
             <div class="item-img">
               <img src="img/salad.svg" alt="salad">
@@ -146,19 +145,17 @@
       }
       ?>
       </div>
-      
+
 
       <div class="items pizza">
         <?php
-      $result = mysqli_query($connection, "SELECT meal_name, meal_description, meal_amount, meal_value FROM meals WHERE restraunt_id = 1 and meal_category = 3");
-      $datas = array();
-      $datas = array();
+      $result = mysqli_query($connection, "SELECT * FROM meals WHERE restraunt_id = 1 and meal_category = 3");
       if(mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
-  ?> 
-        <label for="checkbox-item1" class="item">
-          <input type="checkbox" id="checkbox-item1">
-          
+          $i += 1;
+          echo '<label for='."checkbox-item$row[meal_id]". ' class='."item".'>';
+          echo '<input type= "checkbox" name='. "$i".' value='. "$row[meal_id]". ' id='."checkbox-item$row[meal_id]". '>' ?>
+
           <div class="item-left">
             <div class="item-img">
               <img src="img/pizza.svg" alt="salad">
@@ -202,15 +199,13 @@
       <div class="items firstdish">
 
         <?php
-      $result = mysqli_query($connection, "SELECT meal_name, meal_description, meal_amount, meal_value FROM meals WHERE restraunt_id = 1 and meal_category = 4");
-      $datas = array();
-      $datas = array();
+      $result = mysqli_query($connection, "SELECT * FROM meals WHERE restraunt_id = 1 and meal_category = 4");
       if(mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
-  ?> 
-        <label for="checkbox-item1" class="item">
-          <input type="checkbox" id="checkbox-item1">
-          
+          $i += 1;
+          echo '<label for='."checkbox-item$row[meal_id]". ' class='."item".'>';
+          echo '<input type= "checkbox" name='. "$i".' value='. "$row[meal_id]". ' id='."checkbox-item$row[meal_id]". '>' ?>
+
           <div class="item-left">
             <div class="item-img">
               <img src="img/soup.svg" alt="salad">
@@ -407,15 +402,12 @@
     </div>
     <div class="container-submit animated fadeInUp delay-1s">
       <a href="#" class="cart-submit">Заказать - <span>400</span> грн</a>
+      <input type="submit">
     </div>
     </form>
   </div>
-  
-  <?php 
-    $our_form = $_GET['form'];
-    print_r("$our_form");
-  ?>
-  
+
+
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
