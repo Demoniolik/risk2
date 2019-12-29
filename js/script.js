@@ -46,3 +46,39 @@ function setHeiHeight() {
 }
 setHeiHeight(); // устанавливаем высоту окна при первой загрузке страницы
 $(window).resize( setHeiHeight ); // обновляем при изменении размеров окна
+
+
+/*var countChecked = function() {
+  var count = $('input[type=checkbox]:checked').length;
+  $( ".amount-items" ).text(count);
+  console.log(count);
+};
+countChecked();
+$( "label.item").on( "click", countChecked );
+*/
+var count = 0;
+
+    $(function() {
+        displayCount();
+        $('input[type=checkbox]').click(function() {
+            if (this.checked) {
+                count++;
+            } else {
+                count--;
+            }
+            displayCount();
+        });
+        
+    });
+
+    function displayCount() {
+        $('.amount-items').text(count);
+    }
+
+ var form = document.getElementById("form");
+        const request = new XMLHttpRequest();
+        request.open("get","script.php");
+        request.onload = function() {
+        console.log(request.responseText);
+        request.send(new FormData(form));
+      }

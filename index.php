@@ -41,381 +41,263 @@
         <div class="cat rom">Ром</div>
       </div>
     </div>
-    
-      
-    <form action="" method="post">
-    <div class="bottom"> 
-      
-      <div class="items drinks active">
-        <?php
-      $result = mysqli_query($connection, "SELECT * FROM meals WHERE restraunt_id = 1 and meal_category = 1");
-      if(mysqli_num_rows($result) > 0) {
-      $i = 1;
-        while($row = mysqli_fetch_assoc($result)) {
-        $i += 1;
-        echo '<label for='."checkbox-item$row[meal_id]". ' class='."item".'>';
-        echo '<input type= "checkbox" name="form" value="A" id='."checkbox-item$row[meal_id]". '>' ?>
-          
-          <div class="item-left">
-            <div class="item-img">
-              <img src="img/cocktails.svg" alt="salad">
+
+
+    <form onsubmit="openCart()" action="script.php" method="get" class="bottom">
+
+        <div class="items drinks active">
+          <?php
+          $i = 1;
+        $result = mysqli_query($connection, "SELECT * FROM meals WHERE restraunt_id = 1 and meal_category = 1");
+        if(mysqli_num_rows($result) > 0) {
+
+          while($row = mysqli_fetch_assoc($result)) {
+          $i += 1;
+          echo '<input type= "checkbox" name='. "$i".' value='. "$row[meal_id]". ' id='."checkbox-item$row[meal_id]". '>';
+          echo '<label for='."checkbox-item$row[meal_id]". ' class='."item".'>' ?>
+
+
+            <div class="item-left">
+              <div class="item-img">
+                <img src="img/cocktails.svg" alt="salad">
+              </div>
+
+              <div class="product">
+                <div class="item-name">
+                   <?php
+                      echo "$row[meal_name]";
+                    ?>
+                </div>
+
+                <div class="item-descr">
+                   <?php
+                      echo "$row[meal_description]";
+                    ?>
+                </div>
+              </div>
             </div>
 
-            <div class="product">
-              <div class="item-name">
+            <div class="item-right">
+              <div class="item-price">
                  <?php
-                    echo "$row[meal_name]";
+                    echo "$row[meal_value]".'UAH';
                   ?>
               </div>
 
-              <div class="item-descr">
-                 <?php
-                    echo "$row[meal_description]";
-                  ?>
-              </div>
-            </div>
-          </div>
-
-          <div class="item-right">
-            <div class="item-price">
-               <?php
-                  echo "$row[meal_value]".'UAH';
+              <div class="item-amount">
+                <?php
+                    echo "$row[meal_amount]";
                 ?>
-            </div>
-
-            <div class="item-amount">
-              <?php
-                  echo "$row[meal_amount]";
-              ?>
-            </div>
-          </div>
-        </label>
-        <?php
-              }
-      }
-      ?>
-      </div>
-
-      <div class="items salad">
-        <?php
-      $result = mysqli_query($connection, "SELECT meal_name, meal_description, meal_amount, meal_value FROM meals WHERE restraunt_id = 1 and meal_category = 2");
-      $datas = array();
-      $datas = array();
-      if(mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
-  ?> 
-        <label for="checkbox-item1" class="item">
-          <input type="checkbox" id="checkbox-item1">
-          
-          <div class="item-left">
-            <div class="item-img">
-              <img src="img/salad.svg" alt="salad">
-            </div>
-
-            <div class="product">
-              <div class="item-name">
-                <?php
-                  echo "$row[meal_name]";
-              ?>
-              </div>
-
-              <div class="item-descr">
-                <?php
-                  echo "$row[meal_description]";
-              ?>
               </div>
             </div>
-          </div>
-
-          <div class="item-right">
-            <div class="item-price">
-              <?php
-                  echo "$row[meal_value]".'UAH';
-              ?>
-            </div>
-
-            <div class="item-amount">
-              <?php
-                  echo "$row[meal_amount]";
-              ?>
-            </div>
-          </div>
-        </label>
-        <?php
-              }
-      }
-      ?>
-      </div>
-      
-
-      <div class="items pizza">
-        <?php
-      $result = mysqli_query($connection, "SELECT meal_name, meal_description, meal_amount, meal_value FROM meals WHERE restraunt_id = 1 and meal_category = 3");
-      $datas = array();
-      $datas = array();
-      if(mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
-  ?> 
-        <label for="checkbox-item1" class="item">
-          <input type="checkbox" id="checkbox-item1">
-          
-          <div class="item-left">
-            <div class="item-img">
-              <img src="img/pizza.svg" alt="salad">
-            </div>
-
-            <div class="product">
-              <div class="item-name">
-                <?php
-                  echo "$row[meal_name]";
-              ?>
-              </div>
-
-              <div class="item-descr">
-                <?php
-                  echo "$row[meal_description]";
-              ?>
-              </div>
-            </div>
-          </div>
-
-          <div class="item-right">
-            <div class="item-price">
-              <?php
-                  echo "$row[meal_value]".'UAH';
-              ?>
-            </div>
-
-            <div class="item-amount">
-              <?php
-                  echo "$row[meal_amount]";
-              ?>
-            </div>
-          </div>
-        </label>
-        <?php
-              }
-      }
-      ?>
-      </div>
-
-      <div class="items firstdish">
-
-        <?php
-      $result = mysqli_query($connection, "SELECT meal_name, meal_description, meal_amount, meal_value FROM meals WHERE restraunt_id = 1 and meal_category = 4");
-      $datas = array();
-      $datas = array();
-      if(mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
-  ?> 
-        <label for="checkbox-item1" class="item">
-          <input type="checkbox" id="checkbox-item1">
-          
-          <div class="item-left">
-            <div class="item-img">
-              <img src="img/soup.svg" alt="salad">
-            </div>
-
-            <div class="product">
-              <div class="item-name">
-                <?php
-                  echo "$row[meal_name]";
-              ?>
-              </div>
-
-              <div class="item-descr">
-                <?php
-                  echo "$row[meal_description]";
-              ?>
-              </div>
-            </div>
-          </div>
-
-          <div class="item-right">
-            <div class="item-price">
-              <?php
-                  echo "$row[meal_value]".'UAH';
-              ?>
-            </div>
-
-            <div class="item-amount">
-              <?php
-                  echo "$row[meal_amount]";
-              ?>
-            </div>
-          </div>
-        </label>
-        <?php
-              }
-      }
-      ?>
-      </div>
-      <div class="footer-menu">
-        <div class="container">
-          <ul>
-            <li><a href="#"><img src="img/menu/user.svg" alt=""></a></li>
-            <li><a href="#"><img src="img/menu/options.svg" alt=""></a></li>
-            <li><a href="#"><img src="img/menu/loupe.svg" alt=""></a></li>
-            <li><a href="#"><img src="img/menu/keyboard-right-arrow-button.svg" alt=""></a></li>
-            <li><a href="#" onclick="openCart();"><img src="img/menu/shopping-cart.svg" alt=""></a></li>
-          </ul>
+          </label>
+          <?php
+                }
+        }
+        ?>
         </div>
-      </div>
-    </div>
 
-    <div class="container-cart"></div>
-    <div class="cart animated fadeInUp">
-      <div class="item">
-          <div class="item-left">
-            <div class="item-img">
-              <img src="img/cocktails.svg" alt="salad">
-            </div>
+        <div class="items salad">
+          <?php
+        $result = mysqli_query($connection, "SELECT * FROM meals WHERE restraunt_id = 1 and meal_category = 2");
+        if(mysqli_num_rows($result) > 0) {
+          while($row = mysqli_fetch_assoc($result)) {
+            $i += 1;
+            echo '<input type= "checkbox" name='. "$i".' value='. "$row[meal_id]". ' id='."checkbox-item$row[meal_id]". '>';
+            echo '<label for='."checkbox-item$row[meal_id]". ' class='."item".'>' ?>
 
-            <div class="product">
-              <div class="item-name">
-                Еспрессо, американо
+            <div class="item-left">
+              <div class="item-img">
+                <img src="img/salad.svg" alt="salad">
               </div>
 
-              <div class="item-descr">
-                Довільна кількість мл.
+              <div class="product">
+                <div class="item-name">
+                  <?php
+                    echo "$row[meal_name]";
+                ?>
+                </div>
+
+                <div class="item-descr">
+                  <?php
+                    echo "$row[meal_description]";
+                ?>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="item-right">
-            <div class="item-price">
-              15UAH
-            </div>
-
-            <div class="item-amount">
-              ml
-            </div>
-          </div>
-      </div>
-
-      <div class="item">
-          <div class="item-left">
-            <div class="item-img">
-              <img src="img/cocktails.svg" alt="salad">
-            </div>
-
-            <div class="product">
-              <div class="item-name">
-                Еспрессо, американо
+            <div class="item-right">
+              <div class="item-price">
+                <?php
+                    echo "$row[meal_value]".'UAH';
+                ?>
               </div>
 
-              <div class="item-descr">
-                Довільна кількість мл.
+              <div class="item-amount">
+                <?php
+                    echo "$row[meal_amount]";
+                ?>
               </div>
             </div>
-          </div>
+          </label>
+          <?php
+                }
+        }
+        ?>
+        </div>
 
-          <div class="item-right">
-            <div class="item-price">
-              15UAH
-            </div>
 
-            <div class="item-amount">
-              ml
-            </div>
-          </div>
-      </div>
+        <div class="items pizza">
+          <?php
+        $result = mysqli_query($connection, "SELECT * FROM meals WHERE restraunt_id = 1 and meal_category = 3");
+        if(mysqli_num_rows($result) > 0) {
+          while($row = mysqli_fetch_assoc($result)) {
+            $i += 1;
+            echo '<input type= "checkbox" name='. "$i".' value='. "$row[meal_id]". ' id='."checkbox-item$row[meal_id]". '>';
+            echo '<label for='."checkbox-item$row[meal_id]". ' class='."item".'>' ?>
 
-      <div class="item">
-          <div class="item-left">
-            <div class="item-img">
-              <img src="img/cocktails.svg" alt="salad">
-            </div>
-
-            <div class="product">
-              <div class="item-name">
-                Еспрессо, американо
+            <div class="item-left">
+              <div class="item-img">
+                <img src="img/pizza.svg" alt="salad">
               </div>
 
-              <div class="item-descr">
-                Довільна кількість мл.
+              <div class="product">
+                <div class="item-name">
+                  <?php
+                    echo "$row[meal_name]";
+                ?>
+                </div>
+
+                <div class="item-descr">
+                  <?php
+                    echo "$row[meal_description]";
+                ?>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="item-right">
-            <div class="item-price">
-              15UAH
-            </div>
-
-            <div class="item-amount">
-              ml
-            </div>
-          </div>
-      </div>
-
-      <div class="item">
-          <div class="item-left">
-            <div class="item-img">
-              <img src="img/cocktails.svg" alt="salad">
-            </div>
-
-            <div class="product">
-              <div class="item-name">
-                Еспрессо, американо
+            <div class="item-right">
+              <div class="item-price">
+                <?php
+                    echo "$row[meal_value]".'UAH';
+                ?>
               </div>
 
-              <div class="item-descr">
-                Довільна кількість мл.
+              <div class="item-amount">
+                <?php
+                    echo "$row[meal_amount]";
+                ?>
               </div>
             </div>
-          </div>
+          </label>
+          <?php
+                }
+        }
+        ?>
+        </div>
 
-          <div class="item-right">
-            <div class="item-price">
-              15UAH
-            </div>
+        <div class="items firstdish">
 
-            <div class="item-amount">
-              ml
-            </div>
-          </div>
-      </div>
+          <?php
+        $result = mysqli_query($connection, "SELECT * FROM meals WHERE restraunt_id = 1 and meal_category = 4");
+        if(mysqli_num_rows($result) > 0) {
+          while($row = mysqli_fetch_assoc($result)) {
+            $i += 1;
+            echo '<input type= "checkbox" name='. "$i".' value='. "$row[meal_id]". ' id='."checkbox-item$row[meal_id]". '>';
+            echo '<label for='."checkbox-item$row[meal_id]". ' class='."item".'>' ?>
 
-      <div class="item">
-          <div class="item-left">
-            <div class="item-img">
-              <img src="img/cocktails.svg" alt="salad">
-            </div>
-
-            <div class="product">
-              <div class="item-name">
-                Еспрессо, американо
+            <div class="item-left">
+              <div class="item-img">
+                <img src="img/soup.svg" alt="salad">
               </div>
 
-              <div class="item-descr">
-                Довільна кількість мл.
+              <div class="product">
+                <div class="item-name">
+                  <?php
+                    echo "$row[meal_name]";
+                ?>
+                </div>
+
+                <div class="item-descr">
+                  <?php
+                    echo "$row[meal_description]";
+                ?>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="item-right">
-            <div class="item-price">
-              15UAH
-            </div>
+            <div class="item-right">
+              <div class="item-price">
+                <?php
+                    echo "$row[meal_value]".'UAH';
+                ?>
+              </div>
 
-            <div class="item-amount">
-              ml
+              <div class="item-amount">
+                <?php
+                    echo "$row[meal_amount]";
+                ?>
+              </div>
             </div>
+          </label>
+          <?php
+                }
+        }
+        ?>
+        </div>
+        <div class="footer-menu">
+          <div class="container">
+            <ul>
+              <li><a href="#"><img src="img/menu/user.svg" alt=""></a></li>
+              <li><a href="#"><img src="img/menu/options.svg" alt=""></a></li>
+              <li><a href="#"><img src="img/menu/loupe.svg" alt=""></a></li>
+              <li><a href="#"><img src="img/menu/keyboard-right-arrow-button.svg" alt=""></a></li>
+              <li class="li-cart"><a href="#" onclick="openCart();"><img src="img/menu/shopping-cart.svg" alt=""></a><div class="amount-items">0</div></li>
+              <input type="submit">
+            </ul>
           </div>
-      </div>
-    </div>
-    <div class="container-submit animated fadeInUp delay-1s">
-      <a href="#" class="cart-submit">Заказать - <span>400</span> грн</a>
-    </div>
+        </div>
     </form>
+
+      <div class="container-cart"></div>
+      <div class="cart animated fadeInUp">
+
+        <div class="item">
+            <div class="item-left">
+              <div class="item-img">
+                <img src="img/cocktails.svg" alt="salad">
+              </div>
+
+              <div class="product">
+                <div class="item-name">
+                  
+                </div>
+
+                <div class="item-descr">
+                  Довільна кількість мл.
+                </div>
+              </div>
+            </div>
+
+            <div class="item-right">
+              <div class="item-price">
+                15UAH
+              </div>
+
+              <div class="item-amount">
+                ml
+              </div>
+            </div>
+        </div>
+
+       
+      </div>
+      <div class="container-submit animated fadeInUp delay-1s">
+        <button type="submit" class="cart-submit">Заказать - <span>400</span> грн</button>
+      </div>
   </div>
-  
-  <?php 
-    $our_form = $_GET['form'];
-    print_r("$our_form");
-  ?>
-  
+
+
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
